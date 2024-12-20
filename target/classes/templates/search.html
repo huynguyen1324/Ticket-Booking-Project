@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang = "en" layout:decorate = "~{layout}" xmlns:layout = "http://www.ultraq.net.nz/thymeleaf/layout">
+    <head>
+        <title>Tìm kiếm theo: [[${keyword}]]</title>
+        <link rel = "stylesheet" th:href = "@{/css/movie-styles.css}">
+    </head>
+    <body>
+        <section layout:fragment = "content">
+            <br>
+            <h1 class = "text-center" style = color:green;font-size:3em>Tìm kiếm theo: [[${keyword}]]</h1>
+            <div th:if = "${!nowShowingMovieList.isEmpty()}">
+                <br>
+                <div th:replace = "~{fragments/now-showing-movie-list :: now-showing-movie-list}"></div>
+                <br>
+            </div>
+            <div th:if = "${!comingSoonMovieList.isEmpty()}">
+                <br>
+                <div th:replace = "~{fragments/coming-soon-movie-list :: coming-soon-movie-list}"></div>
+                <br>
+            </div>
+        </section>
+    </body>
+</html>
