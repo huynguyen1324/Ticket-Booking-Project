@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang = "en" layout:decorate = "~{layout}" xmlns:layout = "http://www.ultraq.net.nz/thymeleaf/layout">
+    <head>
+        <title>Phim đang chiếu</title>
+        <link rel = "stylesheet" th:href = "@{/css/movie-styles.css}">
+    </head>
+    <body>
+        <section layout:fragment = "content">
+            <br><br>
+            <div th:replace = "~{fragments/now-showing-movie-list :: now-showing-movie-list}"></div>
+            <br>
+        </section>
+    </body>
+</html>
