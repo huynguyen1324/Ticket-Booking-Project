@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/project002
+    url: jdbc:mysql://localhost:3306/ticket-booking
     username: root
     password:
   jpa:
@@ -12,7 +12,7 @@ spring:
     host: smtp.gmail.com
     port: 587
     username: huy0132004@gmail.com
-    password: gonz ymjw sjkx rnua
+    password: etvl wiuo dfvj nwti
     properties:
       mail:
         smtp:
