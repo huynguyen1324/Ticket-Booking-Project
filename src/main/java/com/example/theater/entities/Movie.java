@@ -12,29 +12,59 @@ import java.util.List;
 @AllArgsConstructor
 
 @Entity
-@Table(name = "movies")
+@Table (name = "movies")
 public class Movie {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    private String title;
-    private String posterUrl;
-    private String description;
-    private String releaseDate;
-    private boolean nowShowing;
-    private String trailerUrl;
-    private String genre;
-    private String director;
-    private String actors;
-    private int duration;
-    private String language;
-    private String rated;
-    private String bannerUrl;
-    private String keywords; // Chuỗi các từ khoá phục vụ chức năng tìm kiếm phim
-    @OneToMany(mappedBy = "movie", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Comment> comments; // Một Movie có nhiều Comment
 
-    public Movie(String title, String posterUrl, String description, String releaseDate, String nowShowing, String trailerUrl, String genre, String director, String actors, String duration, String language, String rated, String bannerUrl, String keywords) {
+    @Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    private long id;
+
+    @Column (nullable = false)
+    private String title;
+
+    @Column (nullable = false)
+    private String posterUrl;
+
+    @Column (columnDefinition = "text", nullable = false)
+    private String description;
+
+    @Column (nullable = false)
+    private String releaseDate;
+
+    @Column (nullable = false)
+    private boolean nowShowing;
+
+    @Column (nullable = false)
+    private String trailerUrl;
+
+    @Column (nullable = false)
+    private String genre;
+
+    @Column (nullable = false)
+    private String director;
+
+    @Column (nullable = false)
+    private String actors;
+
+    @Column (nullable = false)
+    private int duration;
+
+    @Column (nullable = false)
+    private String language;
+
+    @Column (nullable = false)
+    private String rated;
+
+    @Column (nullable = false)
+    private String bannerUrl;
+
+    @Column (nullable = false)
+    private String keywords;
+
+    @OneToMany (mappedBy = "movie", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List <Comment> comments;
+
+    public Movie (String title, String posterUrl, String description, String releaseDate, String nowShowing, String trailerUrl, String genre, String director, String actors, String duration, String language, String rated, String bannerUrl, String keywords) {
         this.title = title;
         this.posterUrl = posterUrl;
         this.description = description;

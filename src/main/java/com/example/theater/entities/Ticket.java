@@ -10,21 +10,33 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 
 @Entity
-@Table(name = "tickets")
+@Table (name = "tickets")
 public class Ticket {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     private long id;
+
+    @Column (nullable = false)
     private String movieTitle;
+
+    @Column (nullable = false)
     private String time;
+
+    @Column (nullable = false)
     private String date;
+
+    @Column (nullable = false)
     private int seatNo;
+
+    @Column (nullable = false)
     private String seatLabel;
+
     @ManyToOne
-    @JoinColumn(name = "bill_id", referencedColumnName = "id")
+    @JoinColumn (name = "bill_id", referencedColumnName = "id")
     private Bill bill;
 
-    public Ticket(String movieTitle, String time, String date, int seatNo, String seatLabel) {
+    public Ticket (String movieTitle, String time, String date, int seatNo, String seatLabel) {
         this.movieTitle = movieTitle;
         this.time = time;
         this.date = date;

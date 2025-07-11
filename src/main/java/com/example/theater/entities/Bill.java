@@ -12,22 +12,30 @@ import java.util.List;
 @AllArgsConstructor
 
 @Entity
-@Table(name = "bills")
+@Table (name = "bills")
 public class Bill {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    private int totalPrice;
-    private String dateCreated;
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private AppUser user;
-    @OneToMany(mappedBy = "bill", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Ticket> tickets; // Một Bill có nhiều Ticket
-    @OneToMany(mappedBy = "bill", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Food> foods; // Một Bill có nhiều Food
 
-    public Bill(int totalPrice, String dateCreated, AppUser user, List<Ticket> tickets, List<Food> foods) {
+    @Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    private long id;
+
+    @Column (nullable = false)
+    private int totalPrice;
+
+    @Column (nullable = false)
+    private String dateCreated;
+
+    @ManyToOne (cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn (name = "user_id", referencedColumnName = "id")
+    private AppUser user;
+
+    @OneToMany (mappedBy = "bill", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List <Ticket> tickets;
+
+    @OneToMany (mappedBy = "bill", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List <Food> foods;
+
+    public Bill (int totalPrice, String dateCreated, AppUser user, List <Ticket> tickets, List <Food> foods) {
         this.totalPrice = totalPrice;
         this.dateCreated = dateCreated;
         this.user = user;

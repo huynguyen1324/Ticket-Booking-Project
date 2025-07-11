@@ -12,21 +12,40 @@ import java.util.List;
 @AllArgsConstructor
 
 @Entity
-@Table(name = "users")
+@Table (name = "users")
 public class AppUser {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     private long id;
+
+    @Column (unique = true, nullable = false)
     private String email;
+
+    @Column (unique = true, nullable = false)
     private String username;
+
+    @Column (nullable = false)
     private String password;
-    private String emailOtp; // Mã OTP dùng khi đăng ký hoặc quên/đổi mật khẩu
+
+    @Column
+    private String emailOtp;
+
+    @Column
     private String firstName;
+
+    @Column
     private String lastName;
+
+    @Column
     private String age;
+
+    @Column
     private String address;
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Bill> bills; // Một User có nhiều Bill
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Comment> comments; // Một User có nhiều Comment
+
+    @OneToMany (mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List <Bill> bills;
+
+    @OneToMany (mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List <Comment> comments;
 }
